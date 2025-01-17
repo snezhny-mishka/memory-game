@@ -1,0 +1,18 @@
+#board {
+    width: 90vw;
+    height: 90vh;
+    border: 2px solid red;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    border: 2px solid blue;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
