@@ -7,55 +7,60 @@
 body {
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: bisque; 
 }
 
-.cards-container {
-    border: 2px solid black;
-    border-radius: 5px;
-    /* make responsive */
-    width: 600px;
-    height: 400px;
+#board {
+
+    width: 800px;
+    height: 600px;
+    background-color: bisque; 
+    border-radius: 10px;
+    margin: auto;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
 }
 
 .card {
-    position: relative;
-    border: 2px solid blue;
-    width: 150px;
-    height: 150px;
+    width: calc(25% - 20px);
+    height: calc(33.33% - 20px);
 
-    text-align: center;
-    font-size: 40px;
-
-    border-radius: 5px;
+    border-radius: 10px;
+    margin: 10px;
 
     transform-style: preserve-3d;
-    transition: all 0.8s ease;
+    transition:  0.8s;
 }
 
-.card-face {
+.card:active {
+    transform: scale(0.95);
+    transition: transform 5ms;
+}
+
+
+.front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     backface-visibility: hidden;
 }
 
 .front {
-    background-color: bisque;
+    background-color: brown;
+    border-radius: 10px;
 }
 
 .back {
-    background-color: brown;
     transform: rotateY(180deg);
 }
 
 .flip-card {
     transform: rotateY(180deg);
+    
+}
+
+.pair {
+    visibility:hidden;
 }
