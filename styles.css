@@ -2,22 +2,22 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
     height: 100vh;
     display: flex;
-    background-color: bisque; 
+    flex-direction: column;
+    background-color: bisque;
 }
 
 #board {
-
     width: 800px;
     height: 600px;
-    background-color: bisque; 
+    background-color: bisque;
     border-radius: 10px;
     margin: auto;
-
     display: flex;
     flex-wrap: wrap;
 }
@@ -25,12 +25,10 @@ body {
 .card {
     width: calc(25% - 20px);
     height: calc(33.33% - 20px);
-
     border-radius: 10px;
     margin: 10px;
-
     transform-style: preserve-3d;
-    transition:  0.8s;
+    transition: 0.8s;
 }
 
 .card:active {
@@ -38,8 +36,8 @@ body {
     transition: transform 5ms;
 }
 
-
-.front, .back {
+.front,
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -48,7 +46,8 @@ body {
 }
 
 .front {
-    background-color: brown;
+    background-image: url(/test-memory-game-functionality/01-memory-game-dummy/bg-img/back-pattern.png);
+    background-size: contain;
     border-radius: 10px;
 }
 
@@ -58,9 +57,57 @@ body {
 
 .flip-card {
     transform: rotateY(180deg);
-    
 }
 
-.pair {
-    visibility:hidden;
+.card.pair {
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+/* --- MODAL --- */
+
+#modal-container {
+    width: 600px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+    margin-top: 70px;
+}
+
+#buttons-container {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    width: 90px;
+    padding: 5px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+}
+
+/* DESCRIPTION */
+
+#description {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h4 {
+    margin-top: 8px;
 }
