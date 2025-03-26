@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <title>Memory Game</title>
 </head>
+
 <body>
-    
+    <div id="modal-container" hidden>
+        <h1>You Won!</h1>
+        <div id="buttons-container">
+            <button id="play-again-btn" class="btn">Play Again!</button>
+        </div>
+    </div>
+
+    <div id="description">
+        <h2>Memory Game</h2>
+        <h4>Find the matching colors!</h4>
+    </div>
+
     <div id="board">
 
         <div class="card">
             <div class="front""></div>
-            <div class="back"></div>
+            <div class=" back"></div>
         </div>
 
         <div class="card">
@@ -73,4 +89,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
