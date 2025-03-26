@@ -1,4 +1,16 @@
-const colors = ["red", "pink", "blue", "yellow", "green", "orange","red", "pink", "blue", "yellow", "green", "orange"];
+const colors = [
+    "darkred", 
+    "lightcoral", 
+    "indigo", 
+    "yellowgreen", 
+    "sandybrown", 
+    "skyblue", 
+    "darkred", 
+    "lightcoral",
+    "indigo", 
+    "yellowgreen", 
+    "sandybrown", 
+    "skyblue"];
 
 const board = document.getElementById("board");
 const cards = [...document.querySelectorAll(".card")];
@@ -71,7 +83,7 @@ function flip(card) {
     card.classList.add("flip-card");
 }
 
-function isBoardLocked(card2) {
+function isBoardLocked(card1, card2) {
     if(card2) {
         return true;      
     } else {
