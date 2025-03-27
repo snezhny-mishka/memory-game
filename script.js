@@ -33,7 +33,7 @@ arrangeTheCards();
 
 // handling the click event
 function eventClick(e) {
-    if(!isBoardLocked(firstCard, secondCard)) {
+    if(!isBoardLocked(secondCard)) {
         flip(e.currentTarget);
         flipTwoCards(e.currentTarget);
     }
@@ -83,7 +83,7 @@ function flip(card) {
     card.classList.add("flip-card");
 }
 
-function isBoardLocked(card1, card2) {
+function isBoardLocked(card2) {
     if(card2) {
         return true;      
     } else {
