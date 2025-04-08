@@ -30,18 +30,18 @@ h4 {
 }
 
 #board {
-    width: 800px;
-    height: 600px;
+    max-width: 680px;
     background-color: var(--green);
     border-radius: 10px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-    width: calc(25% - 20px);
-    height: calc(33.33% - 20px);
+    width: 150px;
+    height: 150px;
     border-radius: 10px;
     margin: 10px;
     transform-style: preserve-3d;
