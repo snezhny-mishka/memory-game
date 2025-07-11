@@ -25,9 +25,40 @@ h2 {
 }
 
 h4 {
-    margin-top: 8px;
+    /* margin-top: 8px; */
     color: var(--yellow);
 }
+
+/* DESCRIPTION */
+
+#description {
+    /* text-align: center; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.timer-container {
+    width: 280px;
+    height: 35px;
+    background-color: #f9f6f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#timer {
+    width: 200px;
+    height: 25px;
+    background-color: rgb(235, 161, 66);
+    font-size: 20px;
+    text-align: center;
+}
+
+/* GAMEBOARD */
 
 #board {
     max-width: 680px;
@@ -127,9 +158,3 @@ h1 {
     background-color: var(--bright-yellow);
 }
 
-/* DESCRIPTION */
-
-#description {
-    text-align: center;
-    margin-top: 20px;
-}

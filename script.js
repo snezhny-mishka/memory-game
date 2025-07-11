@@ -16,10 +16,15 @@ const board = document.getElementById("board");
 const cards = [...document.querySelectorAll(".card")];
 const modal = document.getElementById("modal-container");
 const playAgainBtn = document.getElementById("play-again-btn");
+const timerDisplay = document.getElementById("timer");
 
 let firstCard = "";
 let secondCard = "";
 let pair = 0; // counting the cards pairs
+// timer
+let timer = null;
+let startTime = 0;
+let elapsedTime = 0;
 
 // arranging the cards
 function arrangeTheCards() {
@@ -30,6 +35,29 @@ function arrangeTheCards() {
     cards.forEach(card => card.addEventListener("click", eventClick));
 }
 arrangeTheCards();
+startTimer();
+
+// timer
+function startTimer() {
+        startTime = Date.now();
+        timer = setInterval(updateTimer, 50);
+}
+
+function updateTimer() {
+    const currentTime = Date.now();
+    elapsedTime = currentTime - startTime;
+    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+    let seconds = Math.floor(elapsedTime / 1000 % 60);
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+
+    timerDisplay.textContent = `${minutes}:${seconds}`;
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
 
 // handling the click event
 function eventClick(e) {
@@ -60,6 +88,7 @@ function compareCards(card1, card2) {
             card2.classList.add("pair");
             setTimeout(() => {
                 if (pair === 6) {
+                    stopTimer();
                     modal.hidden = false;
                 }
             }, 1000);
@@ -96,6 +125,7 @@ playAgainBtn.addEventListener("click", () => {
     modal.hidden = true;
     pair = 0;
     arrangeTheCards();
+    startTimer();
     cards.forEach(card => {
         card.classList.remove("pair");
         card.classList.remove("flip-card");
