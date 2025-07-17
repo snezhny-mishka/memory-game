@@ -78,9 +78,25 @@ function flipTwoCards(card) {
     }
 }
 
+function handleScores() {
+    const currScore = timerDisplay.textContent;
+    localStorage.setItem("current-score", currScore);
+
+    const highScore = localStorage.getItem("high-score");
+    if (!highScore) {
+        localStorage.setItem("high-score", currScore);
+    } else if (localStorage.getItem("current-score") < localStorage.getItem("high-score")) {
+        localStorage.setItem("high-score", currScore);
+    }
+}
+
 function compareCards(card1, card2) {
     if (card1.style.backgroundColor === card2.style.backgroundColor) {
         pair++;
+        if (pair === 6) {
+            stopTimer();
+            handleScores();
+        }
         card1.removeEventListener("click", eventClick);
         card2.removeEventListener("click", eventClick);
         setTimeout(() => {
@@ -88,7 +104,6 @@ function compareCards(card1, card2) {
             card2.classList.add("pair");
             setTimeout(() => {
                 if (pair === 6) {
-                    stopTimer();
                     modal.hidden = false;
                 }
             }, 1000);
@@ -102,6 +117,9 @@ function compareCards(card1, card2) {
         }, 2500);
     }
 }
+
+
+
 
 function resetTheCards() {
     firstCard = "";
