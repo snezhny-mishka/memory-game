@@ -17,6 +17,8 @@ const cards = [...document.querySelectorAll(".card")];
 const modal = document.getElementById("modal-container");
 const playAgainBtn = document.getElementById("play-again-btn");
 const timerDisplay = document.getElementById("timer");
+const showCurrScore = document.getElementById("curr-score");
+const showHighScore = document.getElementById("high-score");
 
 let firstCard = "";
 let secondCard = "";
@@ -96,6 +98,8 @@ function compareCards(card1, card2) {
         if (pair === 6) {
             stopTimer();
             handleScores();
+            showCurrScore.innerText = `Your Score: ${localStorage.getItem("current-score")}`;
+            showHighScore.innerText = `High Score: ${localStorage.getItem("high-score")}`;
         }
         card1.removeEventListener("click", eventClick);
         card2.removeEventListener("click", eventClick);
