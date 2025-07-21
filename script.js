@@ -98,8 +98,8 @@ function compareCards(card1, card2) {
         if (pair === 6) {
             stopTimer();
             handleScores();
-            showCurrScore.innerText = `Your Score: ${localStorage.getItem("current-score")}`;
-            showHighScore.innerText = `High Score: ${localStorage.getItem("high-score")}`;
+            showCurrScore.innerHTML = `<b>Your Score:</b> ${localStorage.getItem("current-score")}`;
+            showHighScore.innerHTML = `<b>High Score:</b> ${localStorage.getItem("high-score")}`;
         }
         card1.removeEventListener("click", eventClick);
         card2.removeEventListener("click", eventClick);
