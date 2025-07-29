@@ -83,15 +83,13 @@ function flipTwoCards(card) {
 function handleScores() {
     const currScore = timerDisplay.textContent;
     localStorage.setItem("current-score", currScore);
-
     const highScore = localStorage.getItem("high-score");
+
     if (!highScore) {
         localStorage.setItem("high-score", currScore);
     } else if (localStorage.getItem("current-score") < localStorage.getItem("high-score")) {
         localStorage.setItem("high-score", currScore);
     }
-    showCurrScore.innerHTML = `<b>Your Score:</b> ${localStorage.getItem("current-score")}`;
-    showHighScore.innerHTML = `<b>High Score:</b> ${localStorage.getItem("high-score")}`;
 }
 
 let matchTimeout = null;
@@ -99,9 +97,11 @@ let modalTimeout = null;
 let noMatchTimeout = null;
 
 function showModal() {
+    showCurrScore.textContent = localStorage.getItem("current-score");
+    showHighScore.textContent = localStorage.getItem("high-score");
     modalTimeout = setTimeout(() => {
-        modal.hidden = false;
-    }, 3500);
+        modal.classList.add("show");
+    }, 800);
 }
 
 function matchDelay(card1, card2) {
@@ -109,7 +109,7 @@ function matchDelay(card1, card2) {
         card1.classList.add("pair");
         card2.classList.add("pair");
         resetTheCards();
-    }, 2500);
+    }, 700);
 }
 
 function noMatchDelay(card1, card2) {
@@ -117,26 +117,21 @@ function noMatchDelay(card1, card2) {
         card1.classList.toggle("flip-card");
         card2.classList.toggle("flip-card");
         resetTheCards();
-    }, 2500);
-}
-
-function deleteTimeouts() {
-    clearTimeout(matchTimeout);
-    clearTimeout(modalTimeout);
-    clearTimeout(noMatchTimeout);
+    }, 700);
 }
 
 function compareCards(card1, card2) {
     if (card1.style.backgroundColor === card2.style.backgroundColor) {
         pair++;
+        card1.removeEventListener("click", eventClick);
+        card2.removeEventListener("click", eventClick);
+        matchDelay(card1, card2);
+
         if (pair === 6) {
             stopTimer();
             handleScores();
             showModal();
         }
-        card1.removeEventListener("click", eventClick);
-        card2.removeEventListener("click", eventClick);
-        matchDelay(card1, card2);
     } else {
         noMatchDelay(card1, card2);
     }
@@ -164,8 +159,7 @@ function isBoardLocked(card2) {
 
 // MODAL BTN - reset the game
 playAgainBtn.addEventListener("click", () => {
-    deleteTimeouts();
-    modal.hidden = true;
+    modal.classList.remove("show");
     pair = 0;
     arrangeTheCards();
     startTimer();
