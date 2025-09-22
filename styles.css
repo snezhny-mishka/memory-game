@@ -14,7 +14,6 @@
 }
 
 body {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: var(--green);
@@ -25,14 +24,12 @@ h2 {
 }
 
 h4 {
-    /* margin-top: 8px; */
     color: var(--yellow);
 }
 
 /* DESCRIPTION */
 
 #description {
-    /* text-align: center; */
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -48,6 +45,7 @@ h4 {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
 }
 
 #timer {
@@ -56,6 +54,7 @@ h4 {
     background-color: rgb(235, 161, 66);
     font-size: 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 /* GAMEBOARD */
@@ -64,7 +63,7 @@ h4 {
     max-width: 680px;
     background-color: var(--green);
     border-radius: 10px;
-    margin: auto;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
