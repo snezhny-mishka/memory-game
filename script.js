@@ -1,16 +1,17 @@
 const colors = [
-    "darkred", 
-    "lightcoral", 
-    "indigo", 
-    "yellowgreen", 
-    "sandybrown", 
-    "skyblue", 
-    "darkred", 
+    "darkred",
     "lightcoral",
-    "indigo", 
-    "yellowgreen", 
-    "sandybrown", 
-    "skyblue"];
+    "indigo",
+    "yellowgreen",
+    "sandybrown",
+    "skyblue",
+    "darkred",
+    "lightcoral",
+    "indigo",
+    "yellowgreen",
+    "sandybrown",
+    "skyblue",
+];
 
 const board = document.getElementById("board");
 const cards = [...document.querySelectorAll(".card")];
@@ -33,23 +34,23 @@ function arrangeTheCards() {
     colors.sort(() => Math.random() - 0.5);
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.backgroundColor = colors[i];
-    };
-    cards.forEach(card => card.addEventListener("click", eventClick));
+    }
+    cards.forEach((card) => card.addEventListener("click", eventClick));
 }
 arrangeTheCards();
 startTimer();
 
 // timer
 function startTimer() {
-        startTime = Date.now();
-        timer = setInterval(updateTimer, 50);
+    startTime = Date.now();
+    timer = setInterval(updateTimer, 50);
 }
 
 function updateTimer() {
     const currentTime = Date.now();
     elapsedTime = currentTime - startTime;
-    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60);
+    let minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+    let seconds = Math.floor((elapsedTime / 1000) % 60);
     minutes = String(minutes).padStart(2, "0");
     seconds = String(seconds).padStart(2, "0");
 
@@ -60,10 +61,9 @@ function stopTimer() {
     clearInterval(timer);
 }
 
-
 // handling the click event
 function eventClick(e) {
-    if(!isBoardLocked(secondCard)) {
+    if (!isBoardLocked(secondCard)) {
         flip(e.currentTarget);
         flipTwoCards(e.currentTarget);
     }
@@ -137,9 +137,6 @@ function compareCards(card1, card2) {
     }
 }
 
-
-
-
 function resetTheCards() {
     firstCard = "";
     secondCard = "";
@@ -150,8 +147,8 @@ function flip(card) {
 }
 
 function isBoardLocked(card2) {
-    if(card2) {
-        return true;      
+    if (card2) {
+        return true;
     } else {
         return false;
     }
@@ -163,9 +160,8 @@ playAgainBtn.addEventListener("click", () => {
     pair = 0;
     arrangeTheCards();
     startTimer();
-    cards.forEach(card => {
+    cards.forEach((card) => {
         card.classList.remove("pair");
         card.classList.remove("flip-card");
     });
 });
-
