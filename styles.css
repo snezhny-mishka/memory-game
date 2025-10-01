@@ -1,10 +1,16 @@
-:root {
+/* :root {
     --green: #797D62; 
     --brown: #351804;
     --yellow: #F1DCA7;
     --sand: #D9AE94;
     --bright-yellow: #FFCB69;
-}
+} */
+ :root {
+    --dark-blue: #1D1A31;
+    --light-violet: #886E8D;
+    --violet: #583857;
+    --pink: #FAC7CF;
+ }
 
 * {
     box-sizing: border-box;
@@ -16,15 +22,15 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: var(--green);
+    background-color: var(--light-violet);
 }
 
 h2 {
-    color: var(--brown);
+    color: var(--dark-blue);
 }
 
 h4 {
-    color: var(--yellow);
+    color: var(--pink);
 }
 
 /* DESCRIPTION */
@@ -40,7 +46,7 @@ h4 {
 .timer-container {
     width: 280px;
     height: 35px;
-    background-color: #f9f6f2;
+    background-color: var(--violet);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -51,7 +57,8 @@ h4 {
 #timer {
     width: 200px;
     height: 25px;
-    background-color: rgb(235, 161, 66);
+    background-color: var(--pink);
+    color: #1D1A31;
     font-size: 20px;
     text-align: center;
     border-radius: 10px;
@@ -61,7 +68,7 @@ h4 {
 
 #board {
     max-width: 680px;
-    background-color: var(--green);
+    background-color: var(--light-violet);
     border-radius: 10px;
     margin: 20px auto;
     display: flex;
@@ -120,8 +127,8 @@ h4 {
     transition: opacity 0.3s ease;
     width: 600px;
     height: 300px;
-    background-color: var(--sand);
-    border: 20px solid var(--yellow);
+    background-color: var(--pink);
+    border: 20px solid var(--violet);
     border-radius: 40px;
     margin: auto;
     position: absolute;
@@ -138,24 +145,34 @@ h4 {
 
 h1 {
     font-size: 60px;
+    color: var(--dark-blue);
 }
 
 #score-container {
     display: flex;
     align-items: center;
+    color: var(--dark-blue);
 }
 
 #curr-score, #high-score {
     padding: 5px;
     font-weight: bold;
+    color: var(--dark-blue);
 }
 
 #play-again-btn {
     width: 90px;
-    padding: 5px;
+    padding: 7px;
     border: none;
     border-radius: 5px;
-    background-color: var(--bright-yellow);
+    background-color: var(--violet);
+    color: var(--pink);
+}
+
+@media screen and (max-width: 680px)  {
+    #modal-container {
+        width: 80%;
+    }
 }
 
 
